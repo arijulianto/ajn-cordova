@@ -1,0 +1,58 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+    -webkit-touch-callout: none
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    user-select: none;
+    font-family:Arial, Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+}
+img{max-width:100%}
+
+.navbar.navbar-transparent{background:transparent!important}
+.spacer{height:56px}
+.spacer2{margin-top:55px;}
+.spacer-2x{height:112px;}
+.pad{padding:10px 16px}
+
+
+/* Info Message */
+.error-msg{padding:0 10px}
+.sukses{margin:2px 0px!important;background:#d3f9d3 url(../img/success.png) no-repeat 2px 2px;border:1px solid #305c30;padding:6px 6px 6px 30px!important;color:#305c30;cursor:default;text-align:left!important}
+.notice{margin:2px 0px!important;background:#cbe0f4 url(../img/notice.png) no-repeat 2px 2px;border:1px solid #96b6d3;padding:6px 6px 6px 30px!important;color:#286eae;cursor:default;text-align:left!important}
+.warning{margin:2px 0px!important;background:#fff6bf url(../img/warning.png) no-repeat 2px 2px;border:1px solid #ffd324;padding:6px 6px 6px 30px!important;color:#817134;cursor:default;text-align:left!important}
+.failed{margin:2px 0px!important;background:#fbe3e4 url(../img/error.png) no-repeat 2px 2px;border:1px solid #fbc2c4;padding:6px 6px 6px 30px!important;color:#d12f19;cursor:default;text-align:left!important}
+
+
+/* Toast */
+.toast{color:#fff;position:fixed;z-index:99999999;left:0;right:0;text-align:center}
+.toast .toast-inner{padding:20px;margin:20px;background:rgba(0,0,0,0.7);-webkit-border-radius:6px;-khtml-border-radius:6px;border-radius:6px}
+.toast.top{top:0;}
+.toast.bottom{bottom:0}
+.toast.center{top:30%}
+
+/* Align */
+.l{text-align:left!important}
+.c{text-align:center!important}
+.r{text-align:right!important}
+.float-left{float:left!important}
+.float-right{float:right!important}
+.card-border{border-top:1px solid #ddd}
+
+
+/* Side Menu Navigation */
+.sidebar-home{margin:0}
+.sidebar-home .item-content{padding-left:0}
+.sidebar-home a{color:#444}
+.sidebar-home a .fa{width:20px;margin:0 12px 0 12px;color:#888}
+.sidebar-home .item-content.line{padding:0;margin:0;height:1px;min-height:1px;}
+.sidebar-home .item-content.line .item-inner{padding:0;margin:0;height:1px;min-height:1px;border-bottom:1px solid #333}
+.app_header{background:#010828;color:#999}
+.app_header .user_info{padding:0 0 10px 12px}
+

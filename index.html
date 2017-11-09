@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />    
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>AJN Cordova</title>
+<link rel="stylesheet" href="css/framework7.material.min.css" />
+<link rel="stylesheet" href="css/framework7.material.colors.min.css" />
+<link rel="stylesheet" href="css/fonts-icons.min.css" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="favicon.ico">
+</head>
+<body class="theme-light">
+<div class="panel-overlay"></div>
+<div class="panel panel-left panel-cover">
+    <div class="app_header">
+        <div class="app_banner"><img src="" /></div>
+        <div class="user_info">
+            Selamat Datang <span class="login-name">{nama}</span><br />
+            Anda login pada <span class="login-time">{time.login}</span>
+        </div>
+    </div>
+    <div class="list-block sidebar-home">
+        <ul>
+            <li class="item-content">
+                <a href="home.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-home"></i>Beranda</div></a>
+            </li>
+            <li class="item-content">
+                <a href="profil.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-user"></i>Profil</div></a>
+            </li>
+            <li class="item-content">
+                <a href="password.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-eye"></i>Ganti Password</div></a>
+            </li>
+            <li class="item-content">
+                <a href="#" class="item-inner close-panel logout"><div class="item-title"><i class="fa fa-unlock-alt"></i>Logout</div></a>
+            </li>
+            <li class="item-content line">
+                <div class="item-inner"><div class="item-title"></div></div>
+            </li>
+            <li class="item-content">
+                <a href="about.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-info-circle"></i>Tentang Aplikasi</div></a>
+            </li>
+            <li class="item-content">
+                <a href="#" class="item-inner close-panel exit-app"><div class="item-title"><i class="fa fa-sign-out"></i>Exit</div></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="views">
+<div class="view view-main">
+<div class="pages">
+<div class="page" data-page="index">
+    <div class="page-content">
+        <p>konten</p>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/plugin.js"></script>
+<script type="text/javascript" src="js/application.js"></script>
+<script type="text/javascript" src="js/library.js"></script>
+</body>
+</html>
