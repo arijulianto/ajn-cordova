@@ -143,7 +143,7 @@ var Database = function(){
 
 
 
-* Alert Message Box */
+/* Alert Message Box */
 function Alert(target){
     this.targ = target;
 }
