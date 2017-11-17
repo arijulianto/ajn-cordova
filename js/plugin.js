@@ -71,9 +71,7 @@ var Database = function(){
 		var ss = "";
 		this._strSQL = strQuery;
 		this._db.transaction(function (tx){
-		console.log(tx);
 			tx.executeSql(strQuery, [], function(t, res){
-				console.log(t);
 				// success
 				if(res.rows.length){
 					for(var i = 0; i<res.rows.length; i++){
@@ -142,6 +140,53 @@ var Database = function(){
 		});
 	}
 };
+
+
+
+* Alert Message Box */
+function Alert(target){
+    this.targ = target;
+}
+Alert.prototype.success = function(txt, n){
+    var wr = this.targ;
+    $$(this.targ).html('<div class="sukses">'+txt+'</div>');
+    if(n>0){
+        n = n*1000;
+        setTimeout(function(){
+            $$(wr).html('');
+        },n)
+    }
+}
+Alert.prototype.warning = function(txt, n){
+    var wr = this.targ;
+    $$(this.targ).html('<div class="warning">'+txt+'</div>');
+    if(n>0){
+        n = n*1000;
+        setTimeout(function(){
+            $$(wr).html('');
+        },n)
+    }
+}
+Alert.prototype.failed = function(txt, n){
+    var wr = this.targ;
+    $$(this.targ).html('<div class="failed">'+txt+'</div>');
+    if(n>0){
+        n = n*1000;
+        setTimeout(function(){
+            $$(wr).html('');
+        },n)
+    }
+}
+Alert.prototype.notice = function(txt, n){
+    var wr = this.targ;
+    $$(this.targ).html('<div class="notice">'+txt+'</div>');
+    if(n>0){
+        n = n*1000;
+        setTimeout(function(){
+            $$(wr).html('');
+        },n)
+    }
+}
 
 
 
@@ -214,52 +259,6 @@ var Database = function(){
     setTimeout(timeAgo, 1000);
 })();
 
-/* Alert Message Box */
-function Alert(target){
-    this.targ = target;
-}
-Alert.prototype.success = function(txt, n){
-    var wr = this.targ;
-    $$(this.targ).html('<div class="sukses">'+txt+'</div>');
-    if(n>0){
-        n = n*1000;
-        setTimeout(function(){
-            $$(wr).html('');
-        },n)
-    }
-}
-Alert.prototype.warning = function(txt, n){
-    var wr = this.targ;
-    $$(this.targ).html('<div class="warning">'+txt+'</div>');
-    if(n>0){
-        n = n*1000;
-        setTimeout(function(){
-            $$(wr).html('');
-        },n)
-    }
-}
-Alert.prototype.failed = function(txt, n){
-    var wr = this.targ;
-    $$(this.targ).html('<div class="failed">'+txt+'</div>');
-    if(n>0){
-        n = n*1000;
-        setTimeout(function(){
-            $$(wr).html('');
-        },n)
-    }
-}
-Alert.prototype.notice = function(txt, n){
-    var wr = this.targ;
-    $$(this.targ).html('<div class="notice">'+txt+'</div>');
-    if(n>0){
-        n = n*1000;
-        setTimeout(function(){
-            $$(wr).html('');
-        },n)
-    }
-}
-
-
 
 
 /* Dialog with Icon */
@@ -269,23 +268,26 @@ Framework7.prototype.plugins.toast = function (app) {
 
     app.toast = function (txt, pos, fade) {
         var sPos = 'bottom',iFade=5000;
-        if(pos!==undefined){
+        $$('.toast').remove();
+        if(pos=='top' || pos=='bottom' || pos=='center' || pos>0){
             if(pos>0){
                 iFade = pos*1000;
-                $$('.pages').append('<div class="toast '+sPos+'"><div class="toast-inner">'+txt+'</div></div>');
+                $$('.pages').append('<div class="toast bottom"><div class="toast-inner">'+txt+'</div></div>');
                 setTimeout(function(){
                     $$('.toast').remove();
                 },iFade);
             }else{
                 if(fade>0){
-                    $$('.pages').append('<div class="toast '+sPos+'"><div class="toast-inner">'+txt+'</div></div>');
+                    $$('.pages').append('<div class="toast '+pos+'"><div class="toast-inner">'+txt+'</div></div>');
                     setInterval(function(){
                         $$('.toast').remove();
                     },fade*1000);
                 }else{
-                    $$('.pages').append('<div class="toast bottom"><div class="toast-inner">'+txt+'</div></div>');
+                    $$('.pages').append('<div class="toast '+pos+'"><div class="toast-inner">'+txt+'</div></div>');
                 }
             }
+        }else{
+            $$('.pages').append('<div class="toast bottom"><div class="toast-inner">'+txt+'</div></div>');
         }
     };
 }
@@ -296,11 +298,11 @@ Framework7.prototype.plugins.toast = function (app) {
 
 
 /* Dialog with Icon */
-Framework7.prototype.plugins.showInfo = function (app) {
+Framework7.prototype.plugins.Alert = function (app) {
     'use strict';
     var $$ = Dom7,showAlert;
 
-    app.showInfo = function (txt, type, title) {
+    app.Alert = function (txt, type, title) {
         if(type=="failed" || type=="warning" || type=="success" || type=="notice"){
             if(title!==undefined){
                 app.alert('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>', title);
@@ -321,11 +323,30 @@ Framework7.prototype.plugins.showInfo = function (app) {
 
 
 /* Confirm */
-Framework7.prototype.plugins.showConfirm = function (app) {
+Framework7.prototype.plugins.Confirm = function (app) {
     'use strict';
-    var $$ = Dom7,showConfirm;
+    var $$ = Dom7,Confirm;
 
-    app.showConfirm = function (txt, callback, title) {
-        app.confirm('<div class="status"><div class="icon icon-question"></div><div class="txt">'+txt+'</div></div>', title||'Confirm', callback);
+    app.Confirm = function (txt, callback, title) {
+        //app.confirm('<div class="status"><div class="icon icon-question"></div><div class="txt">'+txt+'</div></div>', title||'Confirm', callback);
+        app.modal({
+            title: title||'Confirm',
+            text: '<div class="status"><div class="icon icon-question"></div><div class="txt">'+txt+'</div></div>',
+            buttons: [
+                {
+                    text: 'No'
+                },
+                {
+                    text: 'Yes',
+                    bold: true,
+                    onClick: callback
+                }
+            ]
+        })
     };
 }
+
+
+
+// Base64
+var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9+/=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/rn/g,"n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
