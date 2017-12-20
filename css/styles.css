@@ -3,7 +3,7 @@
 }
 
 body {
-    -webkit-touch-callout: none
+    -webkit-touch-callout: none;
     -webkit-text-size-adjust: none;
     -webkit-user-select: none;
     user-select: none;
@@ -55,4 +55,5 @@ img{max-width:100%}
 .sidebar-home .item-content.line .item-inner{padding:0;margin:0;height:1px;min-height:1px;border-bottom:1px solid #333}
 .app_header{background:#010828;color:#999}
 .app_header .user_info{padding:0 0 10px 12px}
+.app_header h1{margin:0;padding:10px}
 
