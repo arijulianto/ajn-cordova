@@ -11,28 +11,24 @@
 <link rel="stylesheet" href="css/framework7.material.colors.min.css" />
 <link rel="stylesheet" href="css/fonts-icons.min.css" />
 <link rel="stylesheet" href="css/styles.css" />
-<link rel="icon" href="favicon.ico">
+<!--<link rel="icon" href="favicon.ico">-->
 </head>
 <body class="theme-light">
 <div class="panel-overlay"></div>
 <div class="panel panel-left panel-cover">
     <div class="app_header">
-        <div class="app_banner"><img src="" /></div>
-        <div class="user_info">
-            Selamat Datang <span class="login-name">{nama}</span><br />
-            Anda login pada <span class="login-time">{time.login}</span>
-        </div>
+        <h1>App Name</h1>
     </div>
     <div class="list-block sidebar-home">
         <ul>
             <li class="item-content">
-                <a href="home.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-home"></i>Beranda</div></a>
+                <a href="index.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-home"></i>Beranda</div></a>
             </li>
             <li class="item-content">
-                <a href="profil.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-user"></i>Profil</div></a>
+                <a href="hal1.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-user"></i>Halaman 1</div></a>
             </li>
             <li class="item-content">
-                <a href="password.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-eye"></i>Ganti Password</div></a>
+                <a href="hal2.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-eye"></i>Halaman 2</div></a>
             </li>
             <li class="item-content">
                 <a href="#" class="item-inner close-panel logout"><div class="item-title"><i class="fa fa-unlock-alt"></i>Logout</div></a>
@@ -54,8 +50,22 @@
 <div class="view view-main">
 <div class="pages">
 <div class="page" data-page="index">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left"><a href="#" class="link open-panel" data-panel="panel-left"><i class="icon icon-bars"></i></a></div>
+            <div class="left"><a href="#" class="link">My Aplikasi</a></div>
+            <div class="right"><a href="#" class="link">...</a></div>
+        </div>
+    </div>
+    <div class="spacer"></div>
     <div class="page-content">
-        <p>konten</p>
+        <div class="pad">
+            <p>Konten index.html</p>
+            <p class="sukses">sukses</p>
+            <p class="warning">warning</p>
+            <p class="failed">failed</p>
+            <p class="notice">notice</p>
+        </div>
     </div>
 </div>
 </div>
@@ -63,7 +73,6 @@
 </div>
 <script type="text/javascript" src="js/framework7.min.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/plugin.js"></script>
 <script type="text/javascript" src="js/application.js"></script>
 <script type="text/javascript" src="js/library.js"></script>
 </body>
