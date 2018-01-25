@@ -25,16 +25,13 @@
                 <a href="index.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-home"></i>Beranda</div></a>
             </li>
             <li class="item-content">
-                <a href="hal1.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-user"></i>Halaman 1</div></a>
+                <a href="hal1.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-file-o"></i>Halaman 1</div></a>
             </li>
             <li class="item-content">
-                <a href="hal2.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-eye"></i>Halaman 2</div></a>
+                <a href="hal2.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-file-o"></i>Halaman 2</div></a>
             </li>
             <li class="item-content">
                 <a href="#" class="item-inner close-panel logout"><div class="item-title"><i class="fa fa-unlock-alt"></i>Logout</div></a>
-            </li>
-            <li class="item-content line">
-                <div class="item-inner"><div class="item-title"></div></div>
             </li>
             <li class="item-content">
                 <a href="about.html" class="item-inner close-panel"><div class="item-title"><i class="fa fa-info-circle"></i>Tentang Aplikasi</div></a>
@@ -45,26 +42,77 @@
         </ul>
     </div>
 </div>
-
+    
 <div class="views">
 <div class="view view-main">
-<div class="pages">
+<div class="pages navbar-fixed">
 <div class="page" data-page="index">
     <div class="navbar">
         <div class="navbar-inner">
             <div class="left"><a href="#" class="link open-panel" data-panel="panel-left"><i class="icon icon-bars"></i></a></div>
             <div class="left"><a href="#" class="link">My Aplikasi</a></div>
-            <div class="right"><a href="#" class="link">...</a></div>
+            <div class="right"><a href="#" class="link open-popover" data-popover=".menu-actionbar"><i class="fa fa-ellipsis-v"></i></a></div>
+        </div>
+        <div class="popover menu-actionbar">
+            <div class="popover-angle"></div>
+            <div class="list-block">
+                <ul>
+                    <li><a href="#" class="item-link">Profile</a></li>
+                    <li><a href="#" class="item-link">Setting</a></li>
+                    <li><a href="#" class="item-link">Ganti Password</a></li>
+                    <li><a href="#" class="item-link">Logout</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="spacer"></div>
     <div class="page-content">
         <div class="pad">
-            <p>Konten index.html</p>
-            <p class="sukses">sukses</p>
-            <p class="warning">warning</p>
-            <p class="failed">failed</p>
-            <p class="notice">notice</p>
+            <h1>Navigasi Halaman</h1>
+            <p><a href="hal1.html">Ke Halaman 1</a></p>
+            <p><a href="hal2.html">Ke Halaman 2</a></p>
+            
+            <h1>Notifikasi (Inline)</h1>
+            <p><code>&lt;p class="sukses">Contoh notifikasi sukses&lt;/p></code></p>
+            <p class="sukses">Contoh notifikasi sukses</p>
+            <p><code>&lt;p class="warning">Contoh notifikasi warning&lt;/p></code></p>
+            <p class="warning">Contoh notifikasi warning</p>
+            <p><code>&lt;p class="failed">Contoh notifikasi gagal&lt;/p></code></p>
+            <p class="failed">Contoh notifikasi gagal</p>
+            <p><code>&lt;p class="notice">Contoh notifikasi informasi&lt;/p></code></p>
+            <p class="notice">Contoh notifikasi informasi</p>
+
+            <h1>Notifikasi (Alert)</h1>
+            <p><code>myApp.Alert('Text content dialog', 'success', 'Dialog title')</code></p>
+            <p><a class="sample-dialog" data-dialog="success">Sample Dialog Success</a></p>
+            <p><code>myApp.Alert('Text content dialog', 'warning', 'Dialog title')</code></p>
+            <p><a class="sample-dialog" data-dialog="warning">Sample Dialog Warning</a></p>
+            <p><code>myApp.Alert('Text content dialog', 'failed', 'Dialog title')</code></p>
+            <p><a class="sample-dialog" data-dialog="failed">Sample Dialog Failed</a></p>
+            <p><code>myApp.Alert('Text content dialog', 'notice', 'Dialog title')</code></p>
+            <p><a class="sample-dialog" data-dialog="notice">Sample Dialog Notice</a></p>
+
+            <h1>Confirm</h1>
+            <p><code>myApp.Confirm('Anda Yakin?', 'Tanya')</code></p>
+            <p><a class="sample-confirm1">Tampil Aja</a></p>
+            <p><code>myApp.Confirm('Anda Yakin?', function(){<br />&nbsp; &nbsp;myApp.alert('Anda melakukan klik YES', 'Laporan')<br />}, 'Tanya');<br />});</code></p>
+            <p><a class="sample-confirm2">Callback</a></p>
+
+            <h1>Base64</h1>
+            <p>
+                <a class="sample-b64encode">Encode</a> |
+                <a class="sample-b64decode">Decode</a>
+            </p>
+
+            <h1>Formatting</h1>
+            <p>
+                <a class="sample-numberformat">Format Angka</a><br />
+                <a class="sample-tanggal1">Hari ini</a> | <a class="sample-tanggal2">Tgl Tertentu</a> | <a class="sample-tanggal3">Tgl & Jam Tertentu</a><br />
+                <a class="sample-titlecase">Title Case</a>
+            </p>
+
+            <h1>Time Ago</h1>
+            <p><code>&lt;span class="time" data-time="2018-01-20 09:15:27"&gt;2018-01-20 09:15:27&lt;/span&gt;</code></p>
+            <p>Example: <span class="time" data-time="2018-01-20 09:15:27">2018-01-20 09:15:27</span></p>
         </div>
     </div>
 </div>
@@ -72,8 +120,8 @@
 </div>
 </div>
 <script type="text/javascript" src="js/framework7.min.js"></script>
-<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/application.js"></script>
+<!--<script type="text/javascript" src="cordova.js"></script>-->
 <script type="text/javascript" src="js/library.js"></script>
+<script type="text/javascript" src="js/application.js"></script>
 </body>
 </html>

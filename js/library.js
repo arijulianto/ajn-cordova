@@ -63,10 +63,10 @@ function tanggal(format, dates) {
             var ymd = tmp[0].split('-');
             var his = tmp[1].split(':');
             his[2] = his[2] ? his[2] : 0;
-            date = new Date(ymd[0], ymd[1], ymd[2], his[0], his[1], his[2]);
+            date = new Date(ymd[0], ymd[1]-1, ymd[2], his[0], his[1], his[2]);
         } else {
             var ymd = dates.split('-');
-            date = new Date(ymd[0], ymd[1], ymd[2], new Date().getHours(), new Date().getMinutes(), new Date().getSeconds());
+            date = new Date(ymd[0], ymd[1]-1, ymd[2], new Date().getHours(), new Date().getMinutes(), new Date().getSeconds());
         }
     } else {
         date = new Date();
@@ -208,6 +208,57 @@ function tanggal(format, dates) {
     // update time every second
     setTimeout(timeAgo, 1000);
 })();
+
+
+
+/* Dialog with Icon */
+Framework7.prototype.plugins.Alert = function (app) {
+    'use strict';
+    var $$ = Dom7,showAlert;
+
+    app.Alert = function (txt, type, title) {
+        if(type=="failed" || type=="warning" || type=="success" || type=="notice"){
+            if(title!==undefined){
+                app.alert('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>', title);
+            }else{
+                app.alert('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>');
+            }
+        }else if(type=="question"){
+            if(title!==undefined){
+                app.confirm('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>', title);
+            }else{
+                app.confirm('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>');
+            }
+        }else{
+            return;
+        }
+    };
+}
+
+
+/* Confirm */
+Framework7.prototype.plugins.Confirm = function (app) {
+    'use strict';
+    var $$ = Dom7,Confirm;
+
+    app.Confirm = function (txt, callback, title) {
+        //app.confirm('<div class="status"><div class="icon icon-question"></div><div class="txt">'+txt+'</div></div>', title||'Confirm', callback);
+        app.modal({
+            title: title||'Confirm',
+            text: '<div class="status"><div class="icon icon-question"></div><div class="txt">'+txt+'</div></div>',
+            buttons: [
+                {
+                    text: 'Yes',
+                    bold: true,
+                    onClick: callback
+                },
+                {
+                    text: 'No'
+                }
+            ]
+        })
+    };
+}
 
 
 // Base64
