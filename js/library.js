@@ -223,12 +223,6 @@ Framework7.prototype.plugins.Alert = function (app) {
             }else{
                 app.alert('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>');
             }
-        }else if(type=="question"){
-            if(title!==undefined){
-                app.confirm('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>', title, callback);
-            }else{
-                app.confirm('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>');
-            }
         }else{
             return;
         }
