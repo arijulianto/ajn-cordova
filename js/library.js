@@ -216,16 +216,16 @@ Framework7.prototype.plugins.Alert = function (app) {
     'use strict';
     var $$ = Dom7,showAlert;
 
-    app.Alert = function (txt, type, title) {
+    app.Alert = function (txt, type, title, callback) {
         if(type=="failed" || type=="warning" || type=="success" || type=="notice"){
             if(title!==undefined){
-                app.alert('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>', title);
+                app.alert('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>', title, calback);
             }else{
                 app.alert('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>');
             }
         }else if(type=="question"){
             if(title!==undefined){
-                app.confirm('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>', title);
+                app.confirm('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>', title, callback);
             }else{
                 app.confirm('<div class="status"><div class="icon icon-'+type+'"></div><div class="txt">'+txt+'</div></div>');
             }
@@ -259,6 +259,42 @@ Framework7.prototype.plugins.Confirm = function (app) {
         })
     };
 }
+
+/* Toast */
+Framework7.prototype.plugins.toast = function (app) {
+    'use strict';
+    var $$ = Dom7,toast;
+
+    app.toast = function (txt, pos, fade) {
+        var sPos = 'bottom',iFade=5000;
+        $$('.toast').remove();
+        if(pos=='top' || pos=='bottom' || pos=='center'){
+			if(fade>0){
+				$$('.pages').append('<div class="toast '+pos+'"><div class="toast-inner">'+txt+'</div></div>');
+				setInterval(function(){
+					$$('.toast').remove();
+				},fade*1000);
+			}else{
+				$$('.pages').append('<div class="toast '+pos+'"><div class="toast-inner">'+txt+'</div></div>');
+				setInterval(function () {
+					$$('.toast').remove();
+				}, iFade * 1000);
+			}
+		}else if(pos>0){
+			iFade = pos * 1000;
+			$$('.pages').append('<div class="toast bottom"><div class="toast-inner">' + txt + '</div></div>');
+			setTimeout(function () {
+				$$('.toast').remove();
+			}, iFade);
+		}else{
+			$$('.pages').append('<div class="toast bottom"><div class="toast-inner">'+txt+'</div></div>');
+			setInterval(function () {
+				$$('.toast').remove();
+			}, iFade);
+        }
+    };
+}
+
 
 
 // Base64
