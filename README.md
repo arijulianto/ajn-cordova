@@ -11,3 +11,4 @@ Project ini sudah include beberapa tool mendasar yang sering dibutuhkan:
 * Material Icons
 * Custom Class CSS untuk perataan, messages info, dll
 * Action Bar
+* Toast
